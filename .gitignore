@@ -1,0 +1,38 @@
+# --- Python (Archivos compilados que no sirven) ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# --- Odoo (Archivos de configuración y logs) ---
+# ¡MUY IMPORTANTE! Aquí están tus contraseñas
+*.conf
+odoo.conf
+.odoorc
+
+# Logs (Archivos de registro)
+*.log
+
+# Carpetas de datos temporales de Odoo (si las tienes ahí)
+filestore/
+sessions/
+/data/
+
+# --- IDEs (Archivos de configuración de PyCharm/VSCode) ---
+# Esto es personal tuyo, no le interesa a nadie más
+.idea/
+.vscode/
+*.swp
+
+# --- Sistema Operativo (Basura de Windows/Mac) ---
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# --- Entornos Virtuales (Si crearas uno en el futuro) ---
+venv/
+.venv/
+env/
+
+# --- Empaquetados (Tus zips de versiones) ---
+*.zip

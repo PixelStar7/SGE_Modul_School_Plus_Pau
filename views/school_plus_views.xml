@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<odoo> 
+    
+    <!-- List Estudiants -->
+    <record model="ir.ui.view" id="school_student_list">
+        <field name="name">school.student.list</field>
+        <field name="model">school.student</field>
+        <field name="arch" type="xml">
+            <list string="Students">
+                <field name="display_name" string="Full Name"></field>
+                <field name="age"></field>
+                <field name="phone"></field>
+                <field name="eMail"></field>
+                <field name="birthdate" optional="hide"></field>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form Estudiants -->
+
+
+    <!-- Acció d'Estudiants -->
+    <record model="ir.actions.act_window" id="school_student_action">
+        <field name="name">Students</field>
+        <field name="res_model">school.student</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Submenu d'Estudiants -->
+    <menuitem name="Students" id="menu_students" parent="school.menu_root" sequence="80" action="school_student_action"/>
+
+
+
+
+    <!-- List Matricules -->
+    <record model="ir.ui.view" id="school_enrollment_list">
+        <field name="name">school.enrollment.list</field>
+        <field name="model">school.enrollment</field>
+        <field name="arch" type="xml">
+            <list string="Enrollments">
+                <field name="edition_id"></field>
+                <field name="date_start"></field>
+                <field name="date_end"></field>
+                <field name="student_id"></field>
+            </list>
+        </field>
+    </record>
+
+    <!-- Form Matricules -->
+
+    <!-- Acció de Matrícules -->
+    <record model="ir.actions.act_window" id="school_enrollment_action">
+        <field name="name">Enrollments</field>
+        <field name="res_model">school.enrollment</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- Submenu de Matrícules -->
+    <menuitem name="Enrollments" id="menu_enrollment" parent="school.menu_root" sequence="85" action="school_enrollment_action"/>
+
+</odoo> 
