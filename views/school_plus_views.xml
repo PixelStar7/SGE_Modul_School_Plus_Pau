@@ -27,7 +27,7 @@
     </record>
 
     <!-- Submenu d'Estudiants -->
-    <menuitem name="Students" id="menu_students" parent="school.menu_root" sequence="80" action="school_student_action"/>
+    <menuitem name="Students" id="menu_students" parent="school_pau.menu_root" sequence="80" action="school_student_action"/>
 
 
 
@@ -56,6 +56,6 @@
     </record>
 
     <!-- Submenu de Matrícules -->
-    <menuitem name="Enrollments" id="menu_enrollment" parent="school.menu_root" sequence="85" action="school_enrollment_action"/>
+    <menuitem name="Enrollments" id="menu_enrollment" parent="school_pau.menu_root" sequence="85" action="school_enrollment_action"/>
 
 </odoo> 
