@@ -10,7 +10,7 @@
                 <field name="display_name" string="Full Name"></field>
                 <field name="age"></field>
                 <field name="phone"></field>
-                <field name="eMail"></field>
+                <field name="email"></field>
                 <field name="birthdate" optional="hide"></field>
             </list>
         </field>
