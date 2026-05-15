@@ -43,8 +43,9 @@ class SchoolStudent(models.Model):
     age = fields.Integer('Age', compute='_compute_age')
 
     # Dades optatives/obligatòries segons condició
-    tin = fields.Char('Tax ID', size=14, required=(age > 14)) # NIF/CIF
-    parent_info = fields.Html('Parent Information', required=(age < 18)) # Informació dels pares en format HTML
+    # Les condicions s'han de posar a la vista formulari, no al model.
+    tin = fields.Char('Tax ID', size=14) # NIF/CIF; Millor borrar la condició d'aqui
+    parent_info = fields.Html('Parent Information') # Informació dels pares en format HTML
 
     # Relació One2many (Estudiant --> Matrícules).
     enrollment_ids = fields.One2many('school.enrollment', 'student_id', 'Enrollments', required=True)

@@ -17,7 +17,7 @@
     </record>
 
     <!-- Form Estudiants -->
-
+    
 
     <!-- Acció d'Estudiants -->
     <record model="ir.actions.act_window" id="school_student_action">
