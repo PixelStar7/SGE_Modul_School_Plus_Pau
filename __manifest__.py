@@ -20,7 +20,7 @@
         'security/ir.model.access.csv',
         'views/school_plus_views.xml',
         'report/school_plus_report_qweb.xml',
-        'wizard/wizard_edition_enrollment.xml',
+        'wizard/edition_enrollment_wizard.xml',
     ],
     'demo': [],
     'installable': True,
