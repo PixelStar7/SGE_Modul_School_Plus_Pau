@@ -132,8 +132,8 @@
                     </group>
 
                     <group string="Assignatures" colspan="8">
-                        <field name="subject_ids" nolabel="1" widget="one2many_list" options="{'no_create': True, 'no_edit': True}">
-                            <list create="0" delete="0">
+                        <field name="subject_ids" nolabel="1" widget="one2many_list" domain="[('edition_id', '=', parent.edition_id)]">
+                            <list delete="0">
                                 <field name="subject_id"></field>
                                 <field name="qualification"></field>
                             </list>

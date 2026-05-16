@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Action Report Estudiants -->
+    <record id="action_qweb_course_card" model="ir.actions.report">
+        <field name="name">Course with Editions</field>
+        <field name="model">school.course</field>
+        <field name="report_type">qweb-pdf</field>
+        <!-- Usar qweb-html si es vol generar en html-->
+        <field name="report_name">school_pau.report_course_card_template</field>
+        <field name="report_file">school_pau.report_course_card_template</field>
+        <field name="model_id" ref="school_pau.model_school_course"/>
+        <field name="binding_model_id" ref="school_pau.model_school_course"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

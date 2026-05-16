@@ -113,6 +113,26 @@ def _check_qualification(self):
             if enrollment.qualification > 10 or enrollment.qualification < 0:
                 raise ValidationError (_('Qualification must be a number between 0 and 10'))
 
+# Sobreescriptura del mètode create
+@api.model_create_multi
+def create(self, vals):
+    
+    enrollments = super().create(vals)
+
+    for e in enrollments:
+        subjects = e.edition_id.course_id.course_subject_ids
+
+        for s in subjects:
+
+            enSubject = {}
+            enSubject['qualification'] = 0
+            enSubject['subject_id'] = s.id
+            enSubject['enrollment_id'] = e.id
+
+            self.env['school.enrollment.subject'].create(enSubject)
+    
+    return enrollments
+
 
 class SchoolEnrollmentSubject(models.Model):
     _name = 'school.enrollment.subject'
