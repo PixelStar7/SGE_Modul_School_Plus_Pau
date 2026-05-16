@@ -28,7 +28,7 @@ class SchoolStudent(models.Model):
     # Relació Many2one (Estudiants --> Estat).
     state_id = fields.Many2one('res.country.state', 'State', required=True)
 
-    state_country = fields.Char('Country', related='state_id.country_id')
+    state_country = fields.Many2one('res.country', 'Country', related='state_id.country_id', readonly=True)
     
     # Relació Many2one (Estudiants --> Persona).
     customer_id = fields.Many2one('res.partner', 'Customer', required=True)
