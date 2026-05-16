@@ -27,11 +27,13 @@ class SchoolStudent(models.Model):
 
     # Relació Many2one (Estudiants --> Estat).
     state_id = fields.Many2one('res.country.state', 'State', required=True)
+
+    state_country = fields.Char('Country', related='state_id.country_id')
     
     # Relació Many2one (Estudiants --> Persona).
-    customer_id = fields.Many2one('res.partner', 'Parent in Law', required=True)
+    customer_id = fields.Many2one('res.partner', 'Customer', required=True)
 
-    zip = fields.Integer('Zip', required=True)
+    zip = fields.Integer('Zip code', required=True)
 
     city = fields.Char('City', size=50, required=True)
 

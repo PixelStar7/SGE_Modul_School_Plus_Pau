@@ -17,7 +17,66 @@
     </record>
 
     <!-- Form Estudiants -->
-    
+    <record model="ir.ui.view" id="school_student_form">
+        <field name="name">school.student.form</field>
+        <field name="model">school.student</field>
+        <field name="arch" type="xml">
+            <form string="Student">
+                <sheet>
+                    <group>
+                        <field name="first_name" colspan="4"></field>
+                        <field name="last_name" colspan="4"></field>
+
+                        <field name="birthdate" colspan="2"></field>
+                        <field name="country_id" string="Birthcountry"></field>
+
+                        <field name="gender" colspan="2"></field>
+                        <field name="tin" string="Birthcountry" required="age &gt; 14"></field>
+
+                        <field name="phone" colspan="2"></field>
+
+                        <field name="email" colspan="4"></field>
+
+                        <field name="street1" string="Address" colspan="4"></field>
+                        <field name="street2" nolabel="True" colspan="4"></field>
+
+                        <field name="zip" colspan="2"></field>
+                        <field name="city" colspan="2"></field>
+
+                        <field name="state_id" colspan="2"></field>
+                        <field name="state_country" colspan="2"></field>
+                    </group>
+
+                    <group>
+                        <group string="Information of tutors" colspan="4">
+                            <field name="parent_info" nolabel="True"></field>
+                        </group>
+
+                        <group string="Information of client who pays..." colspan="4">
+                            <field name="customer_id.name" colspan="2"></field>
+                            <field name="customer_id.phone" colspan="2"></field>
+
+                            <field name="customer_id.address" colspan="4"></field>
+
+                            <field name="customer_id.zip" colspan="2"></field>
+                            <field name="customer_id.city" colspan="2"></field>
+
+                            <field name="customer_id.state" colspan="2"></field>
+                            <field name="customer_id.country_id" colspan="2"></field>
+                        </group>
+                    </group>
+
+                    <group string="Enrollments" colspan="8">
+                        <field name="enrollment_ids" nolabel="True" widget="one2many_list" options="{'no_create': True, 'no_edit': True}">
+                            <field name="edition_id"></field>
+                            <field name="qualification"></field>
+                        </field>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
 
     <!-- Acció d'Estudiants -->
     <record model="ir.actions.act_window" id="school_student_action">
@@ -28,8 +87,6 @@
 
     <!-- Submenu d'Estudiants -->
     <menuitem name="Students" id="menu_students" parent="school_pau.menu_root" sequence="80" action="school_student_action"/>
-
-
 
 
     <!-- List Matricules -->
