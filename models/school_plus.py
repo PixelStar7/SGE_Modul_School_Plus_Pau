@@ -110,7 +110,7 @@ class SchoolEnrollment(models.Model):
     def _compute_display_name(self):
         for e in self:
             if e.student_id and e.edition_course_id:
-                e.display_name = e.student_id.display_name + ", " + e.edition_course_id.display_name
+                e.display_name = e.student_id.display_name + " --> " + e.edition_course_id.display_name
             else:
                 e.display_name = ""
 
