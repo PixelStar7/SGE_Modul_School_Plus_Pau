@@ -39,6 +39,9 @@
                                         <t t-if="student.age &gt; 14">
                                             <span t-field="student.tin"/>
                                         </t>
+                                        <t t-else="">
+                                            <span class="text-muted">Not available for students under 15 years old</span>
+                                        </t>
                                     </td>
                                 </tr>
                                 <tr>
