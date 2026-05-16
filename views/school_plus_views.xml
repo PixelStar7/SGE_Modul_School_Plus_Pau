@@ -40,9 +40,7 @@
                                 <field name="phone"></field>
 
                                 <field name="email" colspan="4"></field>
-                            </group>
 
-                            <group string="Student Address" colspan="4" col="4">
                                 <field name="street1" string="Address" colspan="4"></field>
                                 <field name="street2" nolabel="1" colspan="4"></field>
 
