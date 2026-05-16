@@ -39,8 +39,8 @@ class SchoolStudent(models.Model):
     ci_address = fields.Char('Address', related='customer_id.street')
     ci_zip = fields.Char('Zip', related='customer_id.zip')
     ci_city = fields.Char('City', related='customer_id.city')
-    ci_state_id = fields.Many2one('State', related='customer_id.state_id')
-    ci_country_id = fields.Many2one('Country', related='customer_id.country_id')
+    ci_state_id = fields.Many2one('res.country.state', 'State', related='customer_id.state_id')
+    ci_country_id = fields.Many2one('res.country', 'Country', related='customer_id.country_id')
 
 
     zip = fields.Integer('Zip code', required=True)
