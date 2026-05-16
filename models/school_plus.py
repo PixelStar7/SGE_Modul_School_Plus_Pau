@@ -62,23 +62,23 @@ class SchoolStudent(models.Model):
     # Relació One2many (Estudiant --> Matrícules).
     enrollment_ids = fields.One2many('school.enrollment', 'student_id', 'Enrollments', required=True)
 
-@api.depends('first_name', 'last_name')
-def _compute_display_name(self):
-    for student in self:
-        if student.first_name and student.last_name:
-            student.display_name = student.last_name + ", " + student.first_name 
-        else:
-            student.display_name = ""
+    @api.depends('first_name', 'last_name')
+    def _compute_display_name(self):
+        for student in self:
+            if student.first_name and student.last_name:
+                student.display_name = student.last_name + ", " + student.first_name 
+            else:
+                student.display_name = ""
 
 
-@api.depends('birthdate')
-def _compute_age(self):
-    today = fields.Date.today()
-    for record in self:
-        if record.birthdate:
-            record.age = relativedelta(today, record.birthdate).years
-        else:
-            record.age = 0
+    @api.depends('birthdate')
+    def _compute_age(self):
+        today = fields.Date.today()
+        for record in self:
+            if record.birthdate:
+                record.age = relativedelta(today, record.birthdate).years
+            else:
+                record.age = 0
 
 
 class SchoolEnrollment(models.Model):
@@ -105,32 +105,32 @@ class SchoolEnrollment(models.Model):
     # Model / Camp de SchoolEnrollmentSubject / Etiqueta
     subject_ids = fields.One2many('school.enrollment.subject', 'enrollment_id', 'Subjects', required=True)
 
-@api.constrains('qualification')
-def _check_qualification(self):
-    for enrollment in self:
-        if enrollment.qualification:
-            if enrollment.qualification > 10 or enrollment.qualification < 0:
-                raise ValidationError (_('Qualification must be a number between 0 and 10'))
+    @api.constrains('qualification')
+    def _check_qualification(self):
+        for enrollment in self:
+            if enrollment.qualification:
+                if enrollment.qualification > 10 or enrollment.qualification < 0:
+                    raise ValidationError (_('Qualification must be a number between 0 and 10'))
 
-# Sobreescriptura del mètode create
-@api.model_create_multi
-def create(self, vals):
-    
-    enrollments = super().create(vals)
+    # Sobreescriptura del mètode create
+    @api.model_create_multi
+    def create(self, vals):
+        
+        enrollments = super().create(vals)
 
-    for e in enrollments:
-        subjects = e.edition_course_id.course_id.course_subject_ids
+        for e in enrollments:
+            subjects = e.edition_course_id.course_id.course_subject_ids
 
-        for s in subjects:
+            for s in subjects:
 
-            enSubject = {}
-            enSubject['qualification'] = 0
-            enSubject['subject_id'] = s.id
-            enSubject['enrollment_id'] = e.id
+                enSubject = {}
+                enSubject['qualification'] = 0
+                enSubject['subject_id'] = s.id
+                enSubject['enrollment_id'] = e.id
 
-            self.env['school.enrollment.subject'].create(enSubject)
-    
-    return enrollments
+                self.env['school.enrollment.subject'].create(enSubject)
+        
+        return enrollments
 
 
 class SchoolEnrollmentSubject(models.Model):
@@ -146,12 +146,12 @@ class SchoolEnrollmentSubject(models.Model):
     enrollment_id = fields.Many2one('school.enrollment', 'Enrollment', required=True)
 
 
-@api.constrains('qualification')
-def _check_qualification(self):
-    for es in self:
-        if es.qualification:
-            if es.qualification > 10 or es.qualification < 0:
-                raise ValidationError (_('Qualification must be a number between 0 and 10'))
+    @api.constrains('qualification')
+    def _check_qualification(self):
+        for es in self:
+            if es.qualification:
+                if es.qualification > 10 or es.qualification < 0:
+                    raise ValidationError (_('Qualification must be a number between 0 and 10'))
             
 
 class ResPartner(models.Model):
