@@ -8,7 +8,8 @@ class EditionEnrollmentWizard(models.TransientModel):
     _name = 'school.edition.enrollment.wizard'
     _description = 'Edition Enrollment Wizard'
 
-    course_edition_id = fields.Many2one('school.course_edition', string="Course Edition")
+    # Vigila els punts!!!
+    course_edition_id = fields.Many2one('school.course.edition', string="Course Edition")
 
     enrolled_students = fields.Integer('Number of Students', readonly=True)
     aproved_students = fields.Integer('Number of Approved Students', readonly=True)
@@ -23,16 +24,16 @@ class EditionEnrollmentWizard(models.TransientModel):
         all_enrollments = self.env['school.enrollment']
 
         total = all_enrollments.search_count([
-            ('edition_course_id', '=', self.course_edition_id)
+            ('edition_course_id', '=', self.course_edition_id.id)
         ])
 
         total_aproved = all_enrollments.search_count([
-            ('edition_course_id', '=', self.course_edition_id),
+            ('edition_course_id', '=', self.course_edition_id.id),
             ('qualification', '>=', 5)
         ])
 
         total_suspended = all_enrollments.search_count([
-            ('edition_course_id', '=', self.course_edition_id),
+            ('edition_course_id', '=', self.course_edition_id.id),
             ('qualification', '<', 5)
         ])
 
