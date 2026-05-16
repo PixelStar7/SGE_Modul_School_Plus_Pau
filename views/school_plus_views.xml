@@ -53,16 +53,16 @@
                         </group>
 
                         <group string="Information of client who pays..." colspan="4">
-                            <field name="customer_id.name" colspan="2"></field>
-                            <field name="customer_id.phone" colspan="2"></field>
+                            <field name="ci_name" colspan="2"></field>
+                            <field name="ci_phone" colspan="2"></field>
 
-                            <field name="customer_id.address" colspan="4"></field>
+                            <field name="ci_address" colspan="4"></field>
 
-                            <field name="customer_id.zip" colspan="2"></field>
-                            <field name="customer_id.city" colspan="2"></field>
+                            <field name="ci_zip" colspan="2"></field>
+                            <field name="ci_city" colspan="2"></field>
 
-                            <field name="customer_id.state" colspan="2"></field>
-                            <field name="customer_id.country_id" colspan="2"></field>
+                            <field name="ci_state" colspan="2"></field>
+                            <field name="ci_country_id" colspan="2"></field>
                         </group>
                     </group>
 
