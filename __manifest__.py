@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'School_Plus',
-    'version': '1.0',
+    'version': '2.0',
     'category': 'Education',
     'summary': 'School Management Plus',
     'description': """
