@@ -99,8 +99,8 @@ class SchoolEnrollment(models.Model):
     # Relació Many2one (Matrícula --> Edició).
     edition_course_id = fields.Many2one('school.course.edition', 'Edició de curs', required=True)
 
-    date_start = fields.Date('Init Date', related='edition_id.date_start')
-    date_end = fields.Date('End Date', related='edition_id.date_end')
+    date_start = fields.Date('Init Date', related='edition_course_id.date_start')
+    date_end = fields.Date('End Date', related='edition_course_id.date_end')
 
     # Relació One2many (Matrícula --> Assignatures de Matrícula).
     # Model / Camp de SchoolEnrollmentSubject / Etiqueta
@@ -120,7 +120,7 @@ def create(self, vals):
     enrollments = super().create(vals)
 
     for e in enrollments:
-        subjects = e.edition_id.course_id.course_subject_ids
+        subjects = e.edition_course_id.course_id.course_subject_ids
 
         for s in subjects:
 

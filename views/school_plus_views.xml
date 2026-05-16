@@ -77,7 +77,7 @@
                     <group string="Enrollments" colspan="8">
                         <field name="enrollment_ids" nolabel="1" widget="one2many_list" options="{'no_create': True, 'no_edit': True}">
                             <list create="0" delete="0">
-                                <field name="edition_id"></field>
+                                <field name="edition_course_id"></field>
                                 <field name="qualification"></field>
                             </list>
                         </field>
