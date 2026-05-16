@@ -61,7 +61,7 @@
                             <field name="ci_zip" colspan="2"></field>
                             <field name="ci_city" colspan="2"></field>
 
-                            <field name="ci_state" colspan="2"></field>
+                            <field name="ci_state_id" colspan="2"></field>
                             <field name="ci_country_id" colspan="2"></field>
                         </group>
                     </group>
