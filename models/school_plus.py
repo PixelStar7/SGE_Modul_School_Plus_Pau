@@ -3,6 +3,7 @@ from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError 
 from dateutil.relativedelta import relativedelta
 
+# RECORDA LA IDENTACIÓ!!!!!
 
 class SchoolStudent(models.Model):
     _name = 'school.student'
