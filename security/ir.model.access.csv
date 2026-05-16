@@ -1,8 +1,8 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-student_manager,student.manager,model_school_student,school.group_school_manager,1,1,1,1
-enrollment_manager,enrollment.manager,model_school_enrollment,school.group_school_manager,1,1,1,1
-enrollment_subject_manager,enrollment.subject.manager,model_school_enrollment_subject,school.group_school_manager,1,1,1,1
+student_manager,student.manager,model_school_student,school_pau.group_school_manager,1,1,1,1
+enrollment_manager,enrollment.manager,model_school_enrollment,school_pau.group_school_manager,1,1,1,1
+enrollment_subject_manager,enrollment.subject.manager,model_school_enrollment_subject,school_pau.group_school_manager,1,1,1,1
 ,,,,,,,
-student_teacher,student.teacher,model_school_student,school.group_school_teacher,1,0,0,0
-enrollment_teacher,enrollment.teacher,model_school_enrollment,school.group_school_teacher,1,0,0,0
-enrollment_subject_teacher,enrollment.subject.teacher,model_school_enrollment_subject,school.group_school_teacher,1,0,0,0
+student_teacher,student.teacher,model_school_student,school_pau.group_school_teacher,1,0,0,0
+enrollment_teacher,enrollment.teacher,model_school_enrollment,school_pau.group_school_teacher,1,0,0,0
+enrollment_subject_teacher,enrollment.subject.teacher,model_school_enrollment_subject,school_pau.group_school_teacher,1,0,0,0
