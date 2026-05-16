@@ -8,7 +8,7 @@ class EditionEnrollmentWizard(models.TransientModel):
     _name = 'school.edition.enrollment.wizard'
     _description = 'Edition Enrollment Wizard'
 
-    course_edition_id = fields.Many2one('school.school_course_edition', string="Course Edition")
+    course_edition_id = fields.Many2one('school.course_edition', string="Course Edition")
 
     enrolled_students = fields.Integer('Number of Students', readonly=True)
     aproved_students = fields.Integer('Number of Approved Students', readonly=True)

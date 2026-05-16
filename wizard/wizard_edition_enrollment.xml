@@ -1,5 +1,56 @@
-<wizard>
-    <name>edition.enrollment.wizard</name>
-    <model>school.edition.enrollment</model>
-    <inherit>school.edition.enrollment</inherit>
-</wizard>
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem name="Wizards"
+        id="menu_school_wizards" 
+        parent="school_pau.menu_configuration"
+        sequence="99"/>
+
+    <record model="ir.ui.view" id="view_school_wizard_edition_enrollment">
+        <field name="name">school.wizard.edition.enrollment</field>
+        <field name="model">school.edition.enrollment.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Edition Enrollment Wizard">
+                <sheet>
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="init,done"/>
+                    </header>
+                    <!-- En aquest cas hem volgut visualitzar la variable state, però no té per què -->
+                    <!-- El camp state, encara que no es visualitzi, ha de residir dins la vista per poder-lo -->
+                    <!-- utilitzar en les condicions d'invisibilitat -->
+                    <group invisible="state == 'done'">
+                        <group colspan="4">
+                            <field name="course_edition_id" widget="selection"/>
+                        </group>
+                    </group>
+                    <group invisible="state == 'init'">
+                        <field name="enrolled_students"/>
+                        <field name="aproved_students"/>
+                        <field name="suspended_students"/>
+                    </group>
+                    <footer>
+                        <button string="Execute" name="count_students" type="object" invisible="state == 'done'" />
+                        <button string="Cancel" special="cancel" invisible="state == 'done'"/>
+                        <button string="Close" special="cancel" invisible="state == 'init'"/>
+                    </footer>
+                    <!--                        <field name="state" invisible="1"/>-->
+                    <!-- Si no l'haguessim posat en el header, el podriem tenir aquí "invisible" -->
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    
+    <record model="ir.actions.act_window" id="action_school_wizard_edition_enrollment">
+            <field name="name">Edition Enrollment Wizard</field>
+            <field name="res_model">school.edition.enrollment.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+    <menuitem name="Edition Enrollment Wizard"
+        id="menu_school_wizard_edition_enrollment"
+        parent="menu_school_wizards"
+        action="action_school_wizard_edition_enrollment"/>
+
+</odoo>
