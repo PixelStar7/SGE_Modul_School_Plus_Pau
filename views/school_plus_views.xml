@@ -162,12 +162,13 @@
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
             <notebook position="inside">
+                <!-- Només és visible si el customer_rank és diferent de 0 -->
                 <page string="Estudiants" invisible="customer_rank == 0">
                     <field name="student_ids" readonly="1">
-                        <list>
+                        <list string="Estudiants Assegurats">
                             <field name="display_name" string="Nom complet"/>
-                            <field name="phone"/>
-                            <field name="email"/>
+                            <field name="phone" string="Telèfon"/>
+                            <field name="email" string="Correu electrònic"/>
                         </list>
                     </field>
                 </page>
