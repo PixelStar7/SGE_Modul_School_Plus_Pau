@@ -2,16 +2,126 @@
 <odoo>
 
     <!-- Action Report Estudiants -->
-    <record id="action_qweb_course_card" model="ir.actions.report">
-        <field name="name">Course with Editions</field>
-        <field name="model">school.course</field>
+    <record id="action_qweb_student_card" model="ir.actions.report">
+        <field name="name">Student Card</field>
+        <field name="model">school.student</field>
         <field name="report_type">qweb-pdf</field>
         <!-- Usar qweb-html si es vol generar en html-->
-        <field name="report_name">school_pau.report_course_card_template</field>
-        <field name="report_file">school_pau.report_course_card_template</field>
-        <field name="model_id" ref="school_pau.model_school_course"/>
-        <field name="binding_model_id" ref="school_pau.model_school_course"/>
+        <field name="report_name">school_pau.report_student_card_template</field>
+        <field name="report_file">school_pau.report_student_card_template</field>
+        <field name="model_id" ref="school_pau.model_school_student"/>
+        <field name="binding_model_id" ref="school_pau.model_school_student"/>
         <field name="binding_type">report</field>
     </record>
+
+    <!-- Template Report Student -->
+    <template id="report_student_card_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="student">
+                <t t-call="web.external_layout">
+                    <div class="page" style="font-family:sans-serif">
+                        
+                        <div class="text-end">
+                            <span t-esc="datetime.datetime.now()" t-options="{'widget': 'datetime'}"/>
+                        </div>
+                        <div class="text-center">
+                            <h1>STUDENT</h1>
+                        </div>
+
+                        <table class="table table-condensed table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td><strong>Name:</strong></td>
+                                    <td colspan="3"><span t-field="student.display_name"/></td>
+                                    
+                                    <td><strong>Tax ID:</strong></td>
+                                    <td colspan="3">
+                                        <t t-if="student.age &gt; 14">
+                                            <span t-field="student.tin"/>
+                                        </t>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Birthdate:</strong></td>
+                                    <td><span t-field="student.birthdate"/></td>
+                                    
+                                    <td><strong>Age:</strong></td>
+                                    <td><span t-field="student.age"/></td>
+                                    
+                                    <td><strong>eMail:</strong></td>
+                                    <td colspan="3"><span t-field="student.email"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Gender:</strong></td>
+                                    <td colspan="3"><span t-field="student.gender"/></td>
+                                    
+                                    <td><strong>Phone:</strong></td>
+                                    <td colspan="3"><span t-field="student.phone"/></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Citizenship:</strong></td>
+                                    <td colspan="3"><span t-field="student.country_id"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <t t-if="student.age &lt; 18">
+                            <h3>
+                                <u>Information of tutors</u>
+                            </h3>
+                            <div>
+                                <span t-field="student.parent_info"/>
+                            </div>
+                        </t>
+
+                        <h3>
+                            <u>Information of client who pays...</u>
+                        </h3>
+                        <table class="table table-condensed table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td><strong>Customer:</strong></td>
+                                    <td colspan="3"><span t-field="student.customer_id.name"/></td>
+                                    
+                                    <td><strong>Phone:</strong></td>
+                                    <td colspan="3"><span t-field="student.ci_phone"/></td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <t t-if="len(student.enrollment_ids)>0">
+                            <h3>
+                                <u>Enrollments</u>
+                            </h3>
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr align="left">
+                                        <th>Course Edition</th>
+                                        <th>Qualification</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr t-foreach="student.enrollment_ids" t-as="e">
+                                        <td>
+                                            <span t-field="e.edition_course_id.display_name"/>
+                                        </td>
+                                        <td>
+                                            <span t-field="e.qualification"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </t>
+                        
+                        <t t-else="">
+                            <br/>
+                            <u>This student has no enrollments</u>
+                        </t>
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
 
 </odoo>
