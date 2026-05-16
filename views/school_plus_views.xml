@@ -23,6 +23,7 @@
         <field name="arch" type="xml">
             <form string="Student">
                 <sheet>
+                    <field name="age" invisible="1"></field>
                     <group>
                         <group col="4">
     
