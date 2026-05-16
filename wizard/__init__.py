@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
 
-from . import wizard_edition_enrollment
+from . import edition_enrollment_wizard

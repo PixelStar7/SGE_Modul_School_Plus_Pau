@@ -18,12 +18,12 @@
                     <!-- En aquest cas hem volgut visualitzar la variable state, però no té per què -->
                     <!-- El camp state, encara que no es visualitzi, ha de residir dins la vista per poder-lo -->
                     <!-- utilitzar en les condicions d'invisibilitat -->
-                    <group invisible="state == 'done'">
+                    <group invisible="state != 'init'">
                         <group colspan="4">
                             <field name="course_edition_id" widget="selection"/>
                         </group>
                     </group>
-                    <group invisible="state == 'init'">
+                    <group invisible="state != 'done'">
                         <field name="enrolled_students"/>
                         <field name="aproved_students"/>
                         <field name="suspended_students"/>
