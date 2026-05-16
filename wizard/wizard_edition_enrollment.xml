@@ -1,0 +1,5 @@
+<wizard>
+    <name>edition.enrollment.wizard</name>
+    <model>school.edition.enrollment</model>
+    <inherit>school.edition.enrollment</inherit>
+</wizard>
