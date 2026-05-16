@@ -85,7 +85,8 @@ class SchoolEnrollment(models.Model):
     _name = 'school.enrollment'
     _description = 'Enrollment Management'
 
-    qualification = fields.Float('Qualification', required=True)
+    # Afegim el default=0.0 per solucionar l'error de camp obligatori buit
+    qualification = fields.Float('Qualification', required=True, default=0.0)
 
     # Relació Many2one (Matrícula --> Estudiant).
     # Model / Etiqueta
@@ -137,7 +138,7 @@ class SchoolEnrollmentSubject(models.Model):
     _name = 'school.enrollment.subject'
     _description = 'Enrollment Subject Management'
 
-    qualification = fields.Float('Qualification', required=True)
+    qualification = fields.Float('Qualification', required=True, default=0.0)
 
     # Relació Many2one (Assignatura de Matrícula --> Assignatura).
     subject_id = fields.Many2one('school.course.subject', 'Subject', required=True)
