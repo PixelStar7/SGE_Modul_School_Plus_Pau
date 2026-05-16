@@ -17,6 +17,7 @@
     'website': 'http://www.infomila.info',
     'depends': ['base', 'account', 'school_pau'],
     'data': [
+        'security/ir.model.access.csv',
         'views/school_plus_views.xml',
         'report/school_plus_report_qweb.xml',
     ],
