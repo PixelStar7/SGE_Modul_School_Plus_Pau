@@ -18,7 +18,7 @@
     'depends': ['base', 'account', 'school_pau'],
     'data': [
         'views/school_plus_views.xml',
-        'report/school_plus_reports.xml',
+        'report/school_plus_report_qweb.xml',
     ],
     'demo': [],
     'installable': True,
