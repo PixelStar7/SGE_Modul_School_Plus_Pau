@@ -90,10 +90,14 @@ class SchoolEnrollment(models.Model):
 
     # Relació Many2one (Matrícula --> Estudiant).
     # Model / Etiqueta
-    student_id = fields.Many2one('school.student', 'Student', required=True)
+    student_id = fields.Many2one('school.student', 'Estudiant', required=True)
+
+    # Camps related de student_id
+    student_phone = fields.Char('Telèfon', related='student_id.phone')
+    student_email = fields.Char('Correu-e', related='student_id.email')
 
     # Relació Many2one (Matrícula --> Edició).
-    edition_id = fields.Many2one('school.course.edition', 'Course Edition', required=True)
+    edition_id = fields.Many2one('school.course.edition', 'Edició de curs', required=True)
 
     date_start = fields.Date('Init Date', related='edition_id.date_start')
     date_end = fields.Date('End Date', related='edition_id.date_end')
