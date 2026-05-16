@@ -15,7 +15,7 @@
     """,
     'author': 'Group DAM2 - Course 2025-2026',
     'website': 'http://www.infomila.info',
-    'depends': ['base', 'school_pau'],
+    'depends': ['base', 'account', 'school_pau'],
     'data': ['views/school_plus_views.xml'],
     'demo': [],
     'installable': True,

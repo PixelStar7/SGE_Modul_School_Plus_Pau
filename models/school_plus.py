@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*- 
 from odoo import models, fields, api, _ 
 from odoo.exceptions import ValidationError 
+from dateutil.relativedelta import relativedelta
 
 
 class SchoolStudent(models.Model):
@@ -51,7 +52,7 @@ class SchoolStudent(models.Model):
     street2 = fields.Char('Street2', size=50, required=False)    
 
     # Camps calculats
-    age = fields.Integer('Age', compute='_compute_age')
+    age = fields.Integer('Age', compute='_compute_age', store=False)
 
     # Dades optatives/obligatòries segons condició
     # Les condicions s'han de posar a la vista formulari, no al model.
@@ -72,11 +73,10 @@ def _compute_display_name(self):
 
 @api.depends('birthdate')
 def _compute_age(self):
+    today = fields.Date.today()
     for record in self:
         if record.birthdate:
-            today = fields.Date.today()
-            age = today.year - record.birthdate.year - ((today.month, today.day) < (record.birthdate.month, record.birthdate.day))
-            record.age = age
+            record.age = relativedelta(today, record.birthdate).years
         else:
             record.age = 0
 
@@ -152,3 +152,11 @@ def _check_qualification(self):
         if es.qualification:
             if es.qualification > 10 or es.qualification < 0:
                 raise ValidationError (_('Qualification must be a number between 0 and 10'))
+            
+
+class ResPartner(models.Model):
+    _inherit = 'res.partner'
+
+    # Relació inversa per saber quins estudiants depenen d'aquest client
+    # Relació One2many (Persona --> Estudiants).
+    student_ids = fields.One2many('school.student', 'customer_id', 'Students')
