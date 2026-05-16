@@ -68,8 +68,10 @@
 
                     <group string="Enrollments" colspan="8">
                         <field name="enrollment_ids" nolabel="True" widget="one2many_list" options="{'no_create': True, 'no_edit': True}">
-                            <field name="edition_id"></field>
-                            <field name="qualification"></field>
+                            <list>
+                                <field name="edition_id"></field>
+                                <field name="qualification"></field>
+                            </list>
                         </field>
                     </group>
 
