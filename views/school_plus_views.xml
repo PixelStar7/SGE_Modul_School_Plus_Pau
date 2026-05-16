@@ -134,7 +134,7 @@
                     <group string="Assignatures" colspan="8">
                         <field name="subject_ids" nolabel="1">
                             <list delete="0">
-                                <field name="subject_id" domain="[('course_id', '=', parent.course_id)]"></field>
+                                <field name="subject_id" domain="[('course_id', '=', parent.edition_course_id)]"></field>
                                 <field name="qualification"></field>
                             </list>
                         </field>
