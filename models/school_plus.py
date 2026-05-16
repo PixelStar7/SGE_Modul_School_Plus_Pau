@@ -106,6 +106,14 @@ class SchoolEnrollment(models.Model):
     # Model / Camp de SchoolEnrollmentSubject / Etiqueta
     subject_ids = fields.One2many('school.enrollment.subject', 'enrollment_id', 'Subjects', required=True)
 
+    @api.depends('student_id', 'edition_course_id')
+    def _compute_display_name(self):
+        for e in self:
+            if e.student_id and e.edition_course_id:
+                e.display_name = e.student_id.display_name + ", " + e.edition_course_id.display_name
+            else:
+                e.display_name = ""
+
     @api.constrains('qualification')
     def _check_qualification(self):
         for enrollment in self:
