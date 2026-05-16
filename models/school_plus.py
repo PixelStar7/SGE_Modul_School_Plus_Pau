@@ -97,7 +97,7 @@ class SchoolEnrollment(models.Model):
     student_email = fields.Char('Correu-e', related='student_id.email')
 
     # Relació Many2one (Matrícula --> Edició).
-    edition_id = fields.Many2one('school.course.edition', 'Edició de curs', required=True)
+    edition_course_id = fields.Many2one('school.course.edition', 'Edició de curs', required=True)
 
     date_start = fields.Date('Init Date', related='edition_id.date_start')
     date_end = fields.Date('End Date', related='edition_id.date_end')
