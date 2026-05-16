@@ -34,7 +34,6 @@ class SchoolStudent(models.Model):
     customer_id = fields.Many2one('res.partner', 'Customer', required=True)
 
     # Camps related de customer_id
-    ci_name = fields.Char('Name', related='customer_id.name')
     ci_phone = fields.Char('Phone', related='customer_id.phone', readonly=True)
     ci_address = fields.Char('Address', related='customer_id.street', readonly=True)
     ci_zip = fields.Char('Zip', related='customer_id.zip', readonly=True)

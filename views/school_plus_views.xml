@@ -60,7 +60,7 @@
                             </group>
 
                             <group string="Information of client who pays..." colspan="4" col="4">
-                                <field name="ci_name" string="Customer"></field>
+                                <field name="customer_id" string="Customer"></field>
                                 <field name="ci_phone"></field>
 
                                 <field name="ci_address" colspan="4"></field>
