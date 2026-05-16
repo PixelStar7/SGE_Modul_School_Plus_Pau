@@ -37,7 +37,7 @@
                                 <field name="gender"></field>
                                 <field name="tin" string="Birthcountry" required="age &gt; 14"></field>
                                 
-                                <field name="phone"></field>
+                                <field name="phone" colspan="4"></field>
 
                                 <field name="email" colspan="4"></field>
 
