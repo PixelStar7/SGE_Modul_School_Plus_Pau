@@ -24,46 +24,47 @@
             <form string="Student">
                 <sheet>
                     <group>
-                        <group>
-                            <field name="first_name" col="4"></field>
-                            <field name="last_name" col="4"></field>
+                        <group col="4">
+                            <field name="first_name" colspan="4"></field>
+                            <field name="last_name" colspan="4"></field>
 
-                            <field name="birthdate" col="2"></field>
+                            <!-- Sense res, son col="2"-->
+                            <field name="birthdate"></field>
                             <field name="country_id" string="Birthcountry"></field>
 
-                            <field name="gender" col="2"></field>
+                            <field name="gender"></field>
                             <field name="tin" string="Birthcountry" required="age &gt; 14"></field>
 
-                            <field name="phone" col="2"></field>
+                            <field name="phone"></field>
 
-                            <field name="email" col="4"></field>
+                            <field name="email" colspan="4"></field>
 
-                            <field name="street1" string="Address" col="4"></field>
-                            <field name="street2" nolabel="1" col="4"></field>
+                            <field name="street1" string="Address" colspan="4"></field>
+                            <field name="street2" nolabel="1" colspan="4"></field>
 
-                            <field name="zip" col="2"></field>
-                            <field name="city" col="2"></field>
+                            <field name="zip"></field>
+                            <field name="city"></field>
 
-                            <field name="state_id" col="2"></field>
-                            <field name="state_country" col="2"></field>
+                            <field name="state_id"></field>
+                            <field name="state_country"></field>
                         </group>
 
-                        <group>
+                        <group col="4">
                             <group string="Information of tutors" colspan="4">
                                 <field name="parent_info" nolabel="1"></field>
                             </group>
 
                             <group string="Information of client who pays..." colspan="4">
-                                <field name="ci_name" col="2"></field>
-                                <field name="ci_phone" col="2"></field>
+                                <field name="ci_name"></field>
+                                <field name="ci_phone"></field>
 
-                                <field name="ci_address" col="4"></field>
+                                <field name="ci_address" colspan="4"></field>
 
-                                <field name="ci_zip" col="2"></field>
-                                <field name="ci_city" col="2"></field>
+                                <field name="ci_zip"></field>
+                                <field name="ci_city"></field>
 
-                                <field name="ci_state_id" col="2"></field>
-                                <field name="ci_country_id" col="2"></field>
+                                <field name="ci_state_id"></field>
+                                <field name="ci_country_id"></field>
                             </group>
                         </group>
                     </group>
