@@ -4,7 +4,7 @@
     <!-- Action Report Estudiants -->
     <record id="action_qweb_student_card" model="ir.actions.report">
         <field name="name">Student Card</field>
-        <field name="model">school_plus_pau.student</field>
+        <field name="model">school.student</field>
         <field name="report_type">qweb-pdf</field>
         <!-- Usar qweb-html si es vol generar en html-->
         <field name="report_name">school_plus_pau.report_student_card_template</field>
