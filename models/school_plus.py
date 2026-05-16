@@ -141,7 +141,7 @@ class SchoolEnrollmentSubject(models.Model):
     qualification = fields.Float('Qualification', required=True)
 
     # Relació Many2one (Assignatura de Matrícula --> Assignatura).
-    subject_id = fields.Many2one('school.subject', 'Subject', required=True)
+    subject_id = fields.Many2one('school.course.subject', 'Subject', required=True)
 
     # Relació Many2one (Assignatura de Matrícula --> Matrícula).
     enrollment_id = fields.Many2one('school.enrollment', 'Enrollment', required=True)
