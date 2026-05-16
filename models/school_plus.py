@@ -35,12 +35,12 @@ class SchoolStudent(models.Model):
 
     # Camps related de customer_id
     ci_name = fields.Char('Name', related='customer_id.name')
-    ci_phone = fields.Char('Phone', related='customer_id.phone')
-    ci_address = fields.Char('Address', related='customer_id.street')
-    ci_zip = fields.Char('Zip', related='customer_id.zip')
-    ci_city = fields.Char('City', related='customer_id.city')
-    ci_state_id = fields.Many2one('res.country.state', 'State', related='customer_id.state_id')
-    ci_country_id = fields.Many2one('res.country', 'Country', related='customer_id.country_id')
+    ci_phone = fields.Char('Phone', related='customer_id.phone', readonly=True)
+    ci_address = fields.Char('Address', related='customer_id.street', readonly=True)
+    ci_zip = fields.Char('Zip', related='customer_id.zip', readonly=True)
+    ci_city = fields.Char('City', related='customer_id.city', readonly=True)
+    ci_state_id = fields.Many2one('res.country.state', 'State', related='customer_id.state_id', readonly=True)
+    ci_country_id = fields.Many2one('res.country', 'Country', related='customer_id.country_id', readonly=True)
 
 
     zip = fields.Integer('Zip code', required=True)
