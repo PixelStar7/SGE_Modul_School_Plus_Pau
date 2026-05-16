@@ -24,48 +24,50 @@
             <form string="Student">
                 <sheet>
                     <group>
-                        <field name="first_name" colspan="4"></field>
-                        <field name="last_name" colspan="4"></field>
+                        <group>
+                            <field name="first_name" colspan="4"></field>
+                            <field name="last_name" colspan="4"></field>
 
-                        <field name="birthdate" colspan="2"></field>
-                        <field name="country_id" string="Birthcountry"></field>
+                            <field name="birthdate" colspan="2"></field>
+                            <field name="country_id" string="Birthcountry"></field>
 
-                        <field name="gender" colspan="2"></field>
-                        <field name="tin" string="Birthcountry" required="age &gt; 14"></field>
+                            <field name="gender" colspan="2"></field>
+                            <field name="tin" string="Birthcountry" required="age &gt; 14"></field>
 
-                        <field name="phone" colspan="2"></field>
+                            <field name="phone" colspan="2"></field>
 
-                        <field name="email" colspan="4"></field>
+                            <field name="email" colspan="4"></field>
 
-                        <field name="street1" string="Address" colspan="4"></field>
-                        <field name="street2" nolabel="True" colspan="4"></field>
+                            <field name="street1" string="Address" colspan="4"></field>
+                            <field name="street2" nolabel="True" colspan="4"></field>
 
-                        <field name="zip" colspan="2"></field>
-                        <field name="city" colspan="2"></field>
+                            <field name="zip" colspan="2"></field>
+                            <field name="city" colspan="2"></field>
 
-                        <field name="state_id" colspan="2"></field>
-                        <field name="state_country" colspan="2"></field>
-                    </group>
-
-                    <group>
-                        <group string="Information of tutors" colspan="4">
-                            <field name="parent_info" nolabel="True"></field>
+                            <field name="state_id" colspan="2"></field>
+                            <field name="state_country" colspan="2"></field>
                         </group>
 
-                        <group string="Information of client who pays..." colspan="4">
-                            <field name="ci_name" colspan="2"></field>
-                            <field name="ci_phone" colspan="2"></field>
+                        <group>
+                            <group string="Information of tutors" colspan="4">
+                                <field name="parent_info" nolabel="True"></field>
+                            </group>
 
-                            <field name="ci_address" colspan="4"></field>
+                            <group string="Information of client who pays..." colspan="4">
+                                <field name="ci_name" colspan="2"></field>
+                                <field name="ci_phone" colspan="2"></field>
 
-                            <field name="ci_zip" colspan="2"></field>
-                            <field name="ci_city" colspan="2"></field>
+                                <field name="ci_address" colspan="4"></field>
 
-                            <field name="ci_state_id" colspan="2"></field>
-                            <field name="ci_country_id" colspan="2"></field>
+                                <field name="ci_zip" colspan="2"></field>
+                                <field name="ci_city" colspan="2"></field>
+
+                                <field name="ci_state_id" colspan="2"></field>
+                                <field name="ci_country_id" colspan="2"></field>
+                            </group>
                         </group>
                     </group>
-
+                    
                     <group string="Enrollments" colspan="8">
                         <field name="enrollment_ids" nolabel="True" widget="one2many_list" options="{'no_create': True, 'no_edit': True}">
                             <list>
