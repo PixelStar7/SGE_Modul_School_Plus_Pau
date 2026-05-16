@@ -23,16 +23,16 @@ class EditionEnrollmentWizard(models.TransientModel):
         all_enrollments = self.env['school.enrollment']
 
         total = all_enrollments.search_count([
-            ('edition_course_id', '=', self.course_edition_id.id)
+            ('edition_course_id', '=', self.course_edition_id)
         ])
 
         total_aproved = all_enrollments.search_count([
-            ('edition_course_id', '=', self.course_edition_id.id),
+            ('edition_course_id', '=', self.course_edition_id),
             ('qualification', '>=', 5)
         ])
 
         total_suspended = all_enrollments.search_count([
-            ('edition_course_id', '=', self.course_edition_id.id),
+            ('edition_course_id', '=', self.course_edition_id),
             ('qualification', '<', 5)
         ])
 
